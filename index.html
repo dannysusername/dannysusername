@@ -21,33 +21,37 @@
     </style>
   </head>
   <body>
-    <button type="button">Player 1: Chris</button>
-    <button type2="button2">Create para.</button>
-    
-    <script>
-      const button = document.querySelector("button");
+  <!-- First button for Player 1 -->
+  <button type="button">Player 1: Chris</button>
 
-      button.addEventListener("click", updateName);
+  <!-- Second button with a custom attribute -->
+  <button type2="button2">Create para.</button>
 
-      function updateName() {
-        const name = prompt("Enter a new name");
-        button.textContent = `Player 1: ${name}`;
-      }
-    </script>
+  <script>
+    // Script for updating the name of the first button
+    const playerButton = document.querySelector('button[type="button"]');
 
+    playerButton.addEventListener("click", updateName);
 
-    <script>
+    function updateName() {
+      const name = prompt("Enter a new name");
+      playerButton.textContent = `Player 1: ${name}`;
+    }
+  </script>
+
+  <script>
+    // Script for creating a paragraph when the second button is clicked
     function createParagraph() {
-  const para = document.createElement("p");
-  para.textContent = "You clicked the button!";
-  document.body.appendChild(para);
-}
+      const para = document.createElement("p");
+      para.textContent = "You clicked the button!";
+      document.body.appendChild(para);
+    }
 
-const buttons = document.querySelectorAll("button2");
+    // Select the second button using its custom attribute
+    const createParaButton = document.querySelector('button[type2="button2"]');
 
-for (const button of buttons) {
-  button.addEventListener("click", createParagraph);
-}
-    </script>
-  </body>
+    createParaButton.addEventListener("click", createParagraph);
+  </script>
+</body>
+
 </html>
