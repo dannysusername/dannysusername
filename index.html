@@ -1,37 +1,914 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>JavaScript label example</title>
-    <style>
-      button {
-        font-family: "helvetica neue", helvetica, sans-serif;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-align: center;
-        border: 2px solid rgb(200 200 0 / 0.6);
-        background: rgba(0, 217, 217, 0.6);
-        color: rgb(100 0 0 / 1);
-        box-shadow: 1px 1px 2px rgb(0 0 200 / 0.4);
-        border-radius: 10px;
-        padding: 3px 10px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <button type="button">Player 1: Chris</button>
+<html lang="en"><head><meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AviatorServices Booking</title>
+    <meta name="csrf-token" content="KaLNfo5HrqVAN9iAZyhXsL9L0RfFarY8jvKYcxEd">
 
+        <!-- Styles -->
+    <link href="/css/vendor.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <!--Page Level Plugins-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Custom CSS-->
+                    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/zIriijn3uj5Vpknvt_LnfNbF/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-8mJgBUBw4uTWF9Ooxgb4sUuO9jKtaVm1I+8vb0qpxxX3cafec7ovH+goM3yD4UyO"></script><script type="text/javascript">
+            // a bit for bad practice
+            var AIRPORTS = [
+                                    'Apalachicola Regional|Apalachicola|Florida|KAAF',
+                                    'Miami Executive (Tamiami Airport)|Miami|Florida (our Home Base)|KTMB',
+                                    'Opa Locka Executive|Opa Locka (Miami)|Florida|KOPF',
+                                    'Key West International|Key West|Florida|KEYW',
+                                    'Miami International|Miami|Florida|KMIA',
+                                    'Palm Beach International|West Palm Beach|Florida|KPBI',
+                                    'Fort Lauderdale Executive|Fort Lauderdale|Florida|KFXE',
+                                    'Fort Lauderdale International|Fort Lauderdale|Florida|KFLL',
+                                    'Tampa Executive|Tampa|Florida|KVDF',
+                                    'Tampa International|Tampa|Florida|KTPA',
+                                    'Tallahassee Regional|Tallahassee|Florida|KTLH',
+                                    'Gainesville Regional|Gainesville|Florida|KGNV',
+                                    'Daytona Beach International|Daytona Beach|Florida|KDAB',
+                                    'Hilton Head Island|Hilton Head Island|South Carolina|KHXD',
+                                    'Destin-Fort Walton Beach|Destin|Florida|KDTS',
+                                    'Pensacola Gulf Coast Regional|Pensacola|Florida|KPNS',
+                                    'Jacksonville International|Jacksonville|Florida|KJAX',
+                                    'Northeast Florida Regional Airport|St Augustine|Florida|KSGJ',
+                                    'St Lucie County International|Fort Pierce|Florida|KFPR',
+                                    'St Petersburg-Clearwater International|St Petersburg|Florida|KPIE',
+                                    'Boca Raton Airport|Boca Raton|Florida|KBCT',
+                                    'Clearwater Air Park|Clearwater|Florida|KCLW',
+                                    'Marathon Airport Florida Keys |Marathon|Florida|KMTH',
+                                    'Vero Beach Municipal Airport|Vero Beach|Florida|KVRB',
+                                    'Lakeland Linder Regional Airport|Lakeland|Florida|KLAL',
+                                    'Orlando Executive|Orlando|Florida|KORL',
+                                    'Orlando International Airport|Orlando|Florida|KMCO',
+                                    'Orlando Sanford International Airport|Orlando|Florida|KSFB',
+                                    'Venice Municipal Airport|Venice|Florida|KVNC',
+                                    'Northwest Florida Beaches International|Panama City|Florida|KECP',
+                                    'Page Field Airport|Fort Myers|Florida|KFMY',
+                                    'Southwest Florida International|Fort Myers|Florida|KRSW',
+                                    'North Perry Airport|Hollywood|Florida|KHWO',
+                                    'Immokalee Regional Airport|Immokalee|Florida|KIMM',
+                                    'Craig Municipal Airport|Jacksonville|Florida|KCRG',
+                                    'Cecil Airport|Jacksonville|Florida|KVQQ',
+                                    'Malcolm Mc Kinnon Airport|Brunswick|Georgia|KSSI',
+                                    'Albert Whitted Airport|St Petersburg|Florida|KSPG',
+                                    'Peter O Knight Airport|Tampa|Florida|KTPF',
+                                    'Leesburg International Airport|Leesburg|Florida|KLEE',
+                                    'Naples Municipal Airport|Naples|Florida|KAPF',
+                                    'Marco Island Airport|Marco Island|Florida|KMKY',
+                                    'Ormond Beach Municipal Airport|Ormond Beach|Florida|KOMN',
+                                    'Witham Field Airport|Stuart|Florida|KSUA',
+                                    'Lake City Gateway Airport|Lake City|Florida|KLCQ',
+                                    'Marianna Municipal Airport|Marianna|Florida|KMAI',
+                                    'New Smyrna Beach Municipal Airport|New Smyrna Beach|Florida|KEVB',
+                                    'Flagler County Airport|Palm Coast|Florida|KFIN',
+                                    'Melbourne International|Melbourne|Florida|KMLB',
+                                    'Ocean Reef Club Airport (ORC)|Key Largo Ocean Reef Club|Florida|07FA',
+                                    'Bartow Municipal Airport|Bartow|Florida|KBOW',
+                                    'Avon Park Executive Airport|Avon Park|Florida|KAVO',
+                                    'Bob Sikes Airport|Crestview|Florida|KCEW',
+                                    'Cross City Airport|Cross City|Florida|KCTY',
+                                    'Crystal River Airport|Crystal River|Florida|KCGC',
+                                    'DeLand Municipal Airport|DeLand|Florida|KDED',
+                                    'Fernandina Beach Municipal Airport (Amelia Island)|Fernandina Beach|Florida|KFHB',
+                                    'Okeechobee County Airport|Okeechobee|Florida|KOBE',
+                                    'Massey Ranch Airpark|New Smyrna Beach|Florida|X50',
+                                    'Homestead General Aviation Airport|Homestead|Florida|X51',
+                                    'Sebring Regional Airport|Sebring|Florida|KSEF',
+                                    'Zephyrhills Municipal Airport|Zephyrhills|Florida|KZPH',
+                                    'Winter Haven Gilbert Airport|Winter Haven|Florida|KGIF',
+                                    'Wauchula Municipal Airport (Streamsong Resort)|Wauchula|Florida|KCHN',
+                                    'Palm Beach County Glades Airport|Pahokee|Florida|KPHK',
+                                    'Space Coast Regional Airport|Titusville|Florida|KTIX',
+                                    'Sarasota-Bradenton International Airport|Sarasota|Florida|KSRQ',
+                                    'Punta Gorda Airport|Punta Gorda|Florida|KPGD',
+                                    'La Belle Municipal Airport|La Belle|Florida|X14',
+                                    'Sebastian Municipal Airport|Sebastian|Florida|X26',
+                                    'Umatilla Municipal Airport|Umatilla|Florida|X23',
+                                    'Williston Municipal Airport|Williston|Florida|X60',
+                                    'Valkaria Airport|Valkaria|Florida|X59',
+                                    'Quincy Municipal Airport|Quincy|Florida|2J9',
+                                    'Perry-Foley Airport|Perry|Florida|40J',
+                                    'Palatka Municipal Airport|Palatka|Florida|28J',
+                                    'Kissimmee Gateway Airport|Orlando|Florida|KISM',
+                                    'Ocala International Airport|Ocala|Florida|KOCF',
+                                    'Merritt Island Airport|Merritt Island|Florida|KCOI',
+                                    'Suwannee County Airport|Live Oak|Florida|24J',
+                                    'Lake Wales Municipal Airport|Lake Wales|Florida|X07',
+                                    'Pompano Beach Airpark|Pompano Beach|Florida|KPMP',
+                                    'Palm Beach County Park Airport (Lantana)|West Palm Beach|Florida|KLNA',
+                                    'Arcadia Municipal Airport|Arcadia|Florida|X06',
+                                    'Plant City Airport|Plant City|Florida|KPCM',
+                                    'Tampa North Aero Park|Tampa|Florida|X39',
+                                    'Pilot Country Airport|Brooksville|Florida|X05',
+                                    'Hernando County Airport|Brooksville|Florida|KBKV',
+                                    'Marion County Airport|Dunnellon|Florida|X35',
+                                    'Inverness Airport|Inverness|Florida|KINF',
+                                    'Herlong Recreational Airport|Jacksonville|Florida|KHEG',
+                                    'St Marys Airport|St Marys|Georgia|4J6',
+                                    'Jekyll Island Airport|Jekyll Island|Georgia|09J',
+                                    'St George Island Airport|Apalachicola|Florida|F47',
+                                    'Carrabelle-Thompson Airport|Carrabelle|Florida|X13',
+                                    'Brunswick Golden Isles Airport|Brunswick|Georgia|KBQK',
+                                    'Valdosta Regional Airport|Valdosta|Georgia|KVLD',
+                                    'Homerville Airport|Homerville|Georgia|KHOE',
+                                    'Quitman Brooks County Airport|Quitman|Georgia|4J5',
+                                    'Waycross-Ware County Airport|Waycross|Georgia|KAYS',
+                                    'Jesup-Wayne County Airport|Jesup|Georgia|KJES',
+                                    'Thomasville Regional Airport|Thomasville|Georgia|KTVI',
+                                    'Bacon County Airport|Alma|Georgia|KAMG',
+                                    'Moultrie Municipal Airport|Moultrie|Georgia|KMGR',
+                                    'Spence Airport|Moultrie|Georgia|KMUL',
+                                    'Douglas Municipal Airport|Douglas|Georgia|KDQH',
+                                    'Baxley Municipal Airport|Baxley|Georgia|KBHC',
+                                    'Calhoun County Airport|Blountstown|Florida|F95',
+                                    'Henry Tift Myers Airport|Tifton|Georgia|KTMA',
+                                    'Decatur County Industrial Air Park|Bainbridge|Georgia|KBGE',
+                                    'Camilla-Mitchell County Airport|Camilla|Georgia|KCXU',
+                                    'Savannah Hilton Head International Airport|Savannah|Georgia|KSAV',
+                                    'Fitzgerald Municipal Airport|Fitzgerald|Georgia|KFZG',
+                                    'Tri-County Airport|Bonifay|Florida|1J0',
+                                    'Statesboro-Bulloch County Airport|Statesboro|Georgia|KTBR',
+                                    'Southwest Georgia Regional Airport|Albany|Georgia|KABY',
+                                    'Vidalia Regional Airport|Vidalia|Georgia|KVDI',
+                                    'Beaufort County Airport|Beaufort|South Carolina|KARW',
+                                    'Telfair-Wheeler Airport|McRae|Georgia|KMQW',
+                                    'Ridgeland Airport|Ridgeland|South Carolina|3J1',
+                                    'Metter Municipal Airport|Metter|Georgia|KMHP',
+                                    'Early County Airport|Blakely|Georgia|KBIJ',
+                                    'Heart Of Georgia Regional Airport|Eastman|Georgia|KEZM',
+                                    'Crisp County-Cordele Airport|Cordele|Georgia|KCKF',
+                                    'Charleston Executive Airport|Charleston|South Carolina|KJZI',
+                                    'Dawson Municipal Airport|Dawson|Georgia|16J',
+                                    'Plantation Airpark|Sylvania|Georgia|KJYL',
+                                    'Brantley County Airport|Nahunta|Georgia|4J1',
+                                    'Headland Municipal Airport|Headland|Alabama|0J6',
+                                    'Defuniak Springs Airport|Defuniak Springs|Florida|54J',
+                                    'Barnwell Regional Airport|Barnwell|South Carolina|KBNL',
+                                    'Clayton Municipal Airport|Clayton|Alabama|11A',
+                                    'Kaolin Field|Sandersville|Georgia|KOKZ',
+                                    'Carl Folsom Airport|Elba|Alabama|14J',
+                                    'Middle Georgia Regional Airport|Macon|Georgia|KMCN',
+                                    'Berkeley County Airport|Moncks Corner|South Carolina|KMKS',
+                                    'Louisville Municipal Airport|Louisville|Georgia|2J3',
+                                    'Weedon Field Airport|Eufaula|Alabama|KEUF',
+                                    'Burke County Airport|Waynesboro|Georgia|KBXG',
+                                    'Logan Field Airport|Samson|Alabama|1A4',
+                                    'Blackwell Field Airport|Ozark|Alabama|71J',
+                                    'East Georgia Regional Airport|Swainsboro|Georgia|KSBO',
+                                    'Lower Chattahoochee Regional Airport|Cuthbert|Georgia|25J',
+                                    'Dothan Regional Airport|Dothan|Alabama|KDHN',
+                                    'Cochran Airport|Cochran|Georgia|48A',
+                                    'Geneva Municipal Airport|Geneva|Alabama|33J',
+                                    'Jimmy Carter Regional Airport|Americus|Georgia|KACJ',
+                                    'Macon Downtown Airport|Macon|Georgia|KMAC',
+                                    'W H &#039;Bud&#039; Barron Airport|Dublin|Georgia|KDBN',
+                                    'Columbus Metropolitan Airport|Columbus|Georgia|KCSG',
+                                    'Troy Municipal Airport|Troy|Alabama|KTOI',
+                                    'Jack Edwards Airport|Gulf Shores|Alabama|KJKA',
+                                    'Mt Pleasant Regional Airport-Faison Field|Mount Pleasant|South Carolina|KLRO',
+                                    'Lowcountry Regional Airport|Walterboro|South Carolina|KRBW',
+                                    'Abbeville Municipal Airport|Abbeville|Alabama|0J0',
+                                    'Florala Municipal Airport|Florala|Alabama|0J4',
+                                    'Perry-Houston County Airport|Perry|Georgia|KPXE',
+                                    'Summerville Airport|Summerville|South Carolina|KDYB',
+                                    'Sylvester Airport|Sylvester|Georgia|KSYV',
+                                    'Claxton-Evans County Airport|Claxton|Georgia|KCWV',
+                                    'Allendale County Airport|Allendale|South Carolina|88J',
+                                    'Millen Airport|Millen|Georgia|2J5',
+                                    'Bamberg County Airport|Bamberg|South Carolina|99N',
+                                    'Butler Municipal Airport|Butler|Georgia|6A1',
+                                    'South Alabama Regional Airport at Bill Benton Field|Andalusia|Alabama|79J',
+                                    'Georgetown County Airport|Georgetown|South Carolina|KGGE',
+                                    'Orangeburg Municipal Airport|Orangeburg|South Carolina|KOGB',
+                                    'North Palm Beach County General Aviation Airport|West Palm Beach|Florida|F45',
+                                    'Airglades Airport|Clewiston|Florida|2IS',
+                                    'River Ranch Resort Airport|River Ranch|Florida|2RR',
+                                    'Arthur Dunn Air Park|Titusville|Florida|X21',
+                                    'Keystone Airpark|Keystone Heights|Florida|42J',
+                                    'Berrien County Airport|Nashville|Georgia|4J2',
+                                    'Cook County Airport|Adel|Georgia|15J',
+                                    'Cairo-Grady County Airport|Cairo|Georgia|70J',
+                                    'Hazlehurst Airport|Hazlehurst|Georgia|KAZE',
+                                    'Swinton Smith Field at Reidsville Municipal Airport|Reidsville|Georgia|KRVJ',
+                                    'Donalsonville Municipal Airport|Donalsonville|Georgia|17J',
+                                    'Turner County Airport|Ashburn|Georgia|75J',
+                                    'Treutlen County Airport|Soperton|Georgia|4J8',
+                                    'Hawkinsville-Pulaski County Airport|Hawkinsville|Georgia|51A',
+                                    'Dr. C P Savage Sr. Airport|Montezuma|Georgia|53A',
+                                    'Enterprise Municipal Airport|Enterprise|Alabama|KEDN',
+                                    'St George Airport|St George|South Carolina|6J2',
+                                    'Peter Prince Field Airport|Milton|Florida|2R4',
+                                    'Augusta Regional at Bush Field Airport|Augusta|Georgia|KAGS',
+                                    'Robert F Swinnie Airport|Andrews|South Carolina|KPHH',
+                                    'Baldwin County Airport|Milledgeville|Georgia|KMLJ',
+                                    'Santee Cooper Regional Airport|Manning|South Carolina|KMNI',
+                                    'Daniel Field Airport|Augusta|Georgia|KDNL',
+                                    'Frank Sikes Airport|Luverne|Alabama|04A',
+                                    'Brewton Municipal Airport|Brewton|Alabama|12J',
+                                    'Foley Municipal Airport|Foley|Alabama|5R4',
+                                    'Thomaston-Upson County Airport|Thomaston|Georgia|KOPN',
+                                    'Aiken Municipal Airport|Aiken|South Carolina|KAIK',
+                                    'Williamsburg Regional Airport|Kingstree|South Carolina|KCKI',
+                                    'Thomson-McDuffie County Airport|Thomson|Georgia|KHQU',
+                                    'Myrtle Beach International Airport|Myrtle Beach|South Carolina|KMYR',
+                                    'H L Sonny Callahan Airport|Fairhope|Alabama|KCQF',
+                                    'Harris County Airport|Pine Mountain|Georgia|KPIM',
+                                    'Lexington County At Pelion Airport|Pelion|South Carolina|6J0',
+                                    'Middleton Field Airport|Evergreen|Alabama|KGZH',
+                                    'Roosevelt Memorial Airport|Warm Springs|Georgia|5A9',
+                                    'Auburn University Regional Airport|Auburn|Alabama|KAUO',
+                                    'Conway-Horry County Airport|Conway|South Carolina|KHYW',
+                                    'Griffin-Spalding County Airport|Griffin|Georgia|6A2',
+                                    'Greene County Regional Airport|Greensboro|Georgia|3J7',
+                                    'Grand Strand Airport|North Myrtle Beach|South Carolina|KCRE',
+                                    'Lanett Municipal Airport|Lanett|Alabama|7A3',
+                                    'Columbia Metropolitan Airport|Columbia|South Carolina|KCAE',
+                                    'Bay Minette Municipal Airport|Bay Minette|Alabama|1R8',
+                                    'Jim Hamilton L.B. Owens Airport|Columbia|South Carolina|KCUB',
+                                    'Mobile Downtown Airport|Mobile|Alabama|KBFM',
+                                    'Transylvania County Airport|Brevard|North Carolina|3NR3',
+                                    'Asheville Regional Airport|Asheville|North Carolina|KAVL',
+                                    'Pickens County Airport|Pickens|South Carolina|KLQK',
+                                    'Hartsfield - Jackson Atlanta International|Atlanta|Georgia|KATL',
+                                    'Dekalb-Peachtree Airport|Atlanta|Georgia|KPDK',
+                                    'Gwinnett County - Briscoe Field|Lawrenceville|Georgia|KLZU',
+                                    'Jackson County Airport|Jefferson|Georgia|19A',
+                                    'Cobb County-Mc Collum Field|Atlanta|Georgia|KRYY',
+                                    'Fulton County Airport-Brown Field|Atlanta|Georgia|KFTY',
+                                    'Piedmont Triad International|Greensboro|North Carolina|KGSO',
+                                    'Smith Reynolds Airport|Winston Salem|North Carolina|KINT',
+                                    'Triangle North Executive Airport|Louisburg|North Carolina|KLHZ',
+                                    'Sumter Airport|Sumter|South Carolina|KSMS',
+                                    'Florence Regional Airport|Florence|South Carolina|KFLO',
+                                    'Laurens County Airport|Laurens|South Carolina|KLUX',
+                                    'Wilmington International Airport|Wilmington|North Carolina|KILM',
+                                    'West Georgia Regional Airport - O V Gray Field|Carrollton|Georgia|KCTJ',
+                                    'Gulfport-Biloxi International Airport|Gulfport|Mississippi|KGPT',
+                                    'Marlboro County Jetport - H.E. Avent Field|Bennettsville|South Carolina|KBBP',
+                                    'Charlotte-Monroe Executive Airport|Monroe|North Carolina|KEQY',
+                                    'Blairsville Airport|Blairsville|Georgia|KDZJ',
+                                    'Lumberton Municipal Airport|Lumberton|North Carolina|KLBT',
+                                    'Anderson Regional Airport|Anderson|South Carolina|KAND',
+                                    'Cheraw Municipal Airport Lynch Bellinger Field|Cheraw|South Carolina|KCQW',
+                                    'Lancaster County-Mc Whirter Field Airport|Lancaster|South Carolina|KLKR',
+                                    'Donaldson Center Airport|Greenville|South Carolina|KGYH',
+                                    'Greenville Downtown Airport|Greenville|South Carolina|KGMU',
+                                    'Habersham County Airport|Cornelia|Georgia|KAJR',
+                                    'Stennis International Airport|Bay St Louis|Mississippi|KHSA',
+                                    'Anniston Regional Airport|Anniston|Alabama|KANB',
+                                    'Laurinburg-Maxton Airport|Maxton|North Carolina|KMEB',
+                                    'Lee Gilmer Memorial Airport|Gainesville|Georgia|KGVL',
+                                    'Chester Catawba Regional Airport|Chester|South Carolina|KDCM',
+                                    'Paulding Northwest Atlanta Airport|Atlanta|Georgia|KPUJ',
+                                    'Cartersville Airport|Cartersville|Georgia|KVPC',
+                                    'Tri-Cities Regional TN VA|Bristol/Johnson/Kingsport|Tennessee|KTRI',
+                                    'Gatlinburg-Pigeon Forge Airport|Sevierville|Tennessee|KGKT',
+                                    'Louis Armstrong International Airport New Orleans |New Orleans |Louisiana|KMSY',
+                                    'Tuscaloosa Regional Airport|Tuscaloosa|Alabama|KTCL',
+                                    'Birmingham Shuttlesworth International Airport|Birmingham|Alabama|KBHM',
+                                    'Montgomery Regional Airport (Dannelly Field)|Montgomery|Alabama|KMGM',
+                                    'Northwest Florida Regional Airport, Eglin AFB|Valparaiso|Florida|KVPS',
+                                    'Moore County Airport|Pinehurst Southern Pines|North Carolina|KSOP',
+                                    'Everglades Airpark|Everglades City|Florida|X01',
+                                    'Sugarland Regional|Houston|Texas|KSGR',
+                                    'Golden Triangle Regional|Columbus/West Point/Starkville|Mississippi |KGTR',
+                                    'Spirit of St. Louis Airport|St. Louis|Missouri MO|KSUS',
+                                    'Roscoe Turner Airport|Corinth|Mississippi MS|KCRX',
+                                    'Evans Properties Inc|Ft. Pierce|Florida|FL67',
+                                    'Baton Rouge Metropolitan Airport, Ryan Field|Baton Rouge|Louisiana LA|KBTR',
+                                    'Dumas Billy Free Municiple Airport|Dumas Arkansas AR|Arkansas AR|0M0',
+                                    'Charlottesville-Albemarle Airport|Charlottesville |Virginia VA|KCHO',
+                                    'Wright AAF (Fort Stewart) Midcoast Regional|Fort Stewart (Hinesville GA)|Georgia GA|KLHW',
+                                    'Huntsville International Airport, Carl T Jones Field|Huntsville|Alabama AL|KHSV',
+                                    'Raleigh-Durham International Airport|Raleigh-Durham|North Carolina NC|KRDU',
+                                    'Greenville Mid-Delta Airport|Greenville|Mississippi MS|KGLH',
+                                    'Poplar Bluff Municipal Airport|Poplar Bluff|Missouri MO|KPOF',
+                                    'Orlando Apopka Airport|Apopka (Plymouth)|Florida FL|X04',
+                                    'Stuttgart Municipal Airport (Carl Humphrey Field)|Stuttgart|Arkansas AR|KSGT',
+                                    'Lovell Field Airport|Chattanooga|Tennessee TN|KCHA',
+                                    'Mc Ghee Tyson Airport|Knoxville|Tennessee TN|KTYS',
+                                    'Fayetteville Regional Airport Grannis Field|Fayetteville|North Carolina NC|KFAY',
+                                    'Alexandria International Airport|Alexandria|Louisiana|KAEX',
+                                    'Winchester Municipal Airport|Winchester|Tennessee TN|KBGF',
+                                    'Tailwinds Airport|Jupiter|Florida FL|FD15',
+                                    'Teterboro Airport|Teterboro (New York)|New Jersey|KTEB',
+                                    'Saratoga County Airport|Saratoga Springs|New York|5B2',
+                                    'Holly Ridge  Topsail Island Airport|Holly Ridge|North Carolina NC|N21',
+                                    'Nashville International Airport|Nashville|Tennessee|KBNA',
+                                    'First Flight Airport|Kill Devil Hills|North Carolina NC|KFFA',
+                                    'General Edward Lawrence Logan International Airport|Boston|Massachusetts|KBOS',
+                                    'Athens-Ben Epps Airport|Athens|Georgia|KAHN',
+                                    'Shreveport Downtown Airport|Shreveport|Louisiana LA|KDTN',
+                                    'Minden Airport|Minden|Louisiana LA|KMNE',
+                                    'Addison Airport|Dallas|Texas TX|KADS',
+                                    'Oconee County Regional Airport|Clemson|South Carolina|KCEU	',
+                                    'Charlotte-Douglas International Airport|Charlotte|North Carolina NC|KCLT',
+                                    'Montgomery County Airpark|Gaithersburg|Maryland|KGAI',
+                                    'Norfolk International Airport|Norfolk|Virginia VA|KORF',
+                                    'Ingalls Field Airport|Hot Springs|Virginia VA|KHSP',
+                                    'Wings Field Airport|Philadelphia|Pennsylvania PA|KLOM',
+                                    'Essex County Airport|Caldwell|New Jersey NJ|KCDW',
+                                    'Morristown Municipal Airport|Morristown|New Jersey NJ|KMMU',
+                                    'Richard B. Russell Airport - J.H. Towers Field|Rome|Georgia GA|KRMG',
+                                    'Ashe County Airport|Jefferson|North Carolina NC|KGEV',
+                                    'Concord-Padgett Regional Airport|Concord|North Carolina NC|KJQF',
+                                    'Rock Hill (York Co) Airport-Bryant Field|Rock Hill|South Carolina SC|KUZA',
+                                    'Greenbrier Valley Airport|Lewisburg|West Virginia|KLWB',
+                                    'Shelby county|ALABASTER|ALABAMA|KEET',
+                                    'LOUISVILLE MUHAMMAD ALI INTL|LOUISVILLE|KENTUCKY|KSDF',
+                                    'GENERAL DEWITT SPAIN|MEMPHIS|TENNESSEE|M01',
+                                    'MEMPHIS INTL|MEMPHIS|TENNESSEE|KMEM',
+                                    'Addison Muni|Addison|Alabama|2A8',
+                                    'Albertville Rgnl-Thomas J Brumlik Fld|Albertville|Alabama|8A0',
+                                    'Ashland lineville|Ashland/lineville|Alabama|26A',
+                                    'Atmore Muni|Atmore|Alabama|0R1',
+                                    'Bessemer|Bessemer|Alabama|KEKY',
+                                    'Bibb County|Centreville|Alabama|0A8',
+                                    'Bill Pugh Field|Russellville|Alabama|M22',
+                                    'Butler-Choctaw County|Butler|Alabama|09A',
+                                    'Camden Muni|Camden|Alabama|61A',
+                                    'Centre-Piedmont-Cherokee County Rgnl|Centre|Alabama|KPYP',
+                                    'Chilton County|Clanton|Alabama|02A',
+                                    'Courtland|Courtland|Alabama|9A4',
+                                    'Craig Field|Selma|Alabama|KSEM',
+                                    'Cullman Rgnl-Folsom Field|Cullman|Alabama|KCMD',
+                                    'Demopolis Rgnl|Demopolis|Alabama|KDYA',
+                                    'Double Springs winston County|Double Springs|Alabama|3M2',
+                                    'Eutaw Muni|Eutaw|Alabama|3A7',
+                                    'Fort Deposit-Lowndes County|Fort Deposit|Alabama|67A',
+                                    'Franklin Field|Union Springs|Alabama|07A',
+                                    'George Downer|Aliceville|Alabama|KAIV',
+                                    'Greensboro Muni|Greensboro|Alabama|7A0',
+                                    'Guntersville Muni -Joe Starnes Field|Guntersville|Alabama|8A1',
+                                    'Hartselle-Morgan County Regional|Hartselle|Alabama|5M0',
+                                    'Huntsville Executive Tom Sharp Jr Field|Huntsville|Alabama|KMDQ',
+                                    'Isbell Field|Fort Payne|Alabama|4A9',
+                                    'Jackson Muni|Jackson|Alabama|4R3',
+                                    'Jeremiah Denton|Dauphin Island|Alabama|4R9',
+                                    'Lamar County|Vernon|Alabama|M55',
+                                    'Mac Crenshaw Memorial|Greenville|Alabama|KPRN',
+                                    'Marion County-Rankin Fite|Hamilton|Alabama|KHAB',
+                                    'Merkel Field Sylacauga Muni|Sylacauga|Alabama|KSCD',
+                                    'Mobile Rgnl|Mobile|Alabama|KMOB',
+                                    'Monroe County Aeroplex|Monroeville|Alabama|KMVC',
+                                    'Moton Field Muni|Tuskegee|Alabama|06A',
+                                    'North Pickens|Reform|Alabama|3M8',
+                                    'Northeast Alabama Rgnl|Gadsden|Alabama|KGAD',
+                                    'Northwest Alabama Rgnl|Muscle Shoals|Alabama|KMSL',
+                                    'Posey Field|Haleyville|Alabama|1M4',
+                                    'Prattville -Grouby Field|Prattville|Alabama|1A9',
+                                    'Pryor Field Rgnl|Decatur|Alabama|KDCU',
+                                    'Richard Arthur Field|Fayette|Alabama|M95',
+                                    'Roanoke Muni|Roanoke|Alabama|7A5',
+                                    'Robbins Field|Oneonta|Alabama|20A',
+                                    'Roy Wilcox|Chatom|Alabama|5R1',
+                                    'Scottsboro Muni-Word Field|Scottsboro|Alabama|4A6',
+                                    'St Clair County|Pell City|Alabama|KPLR',
+                                    'St Elmo|St Elmo|Alabama|2R5',
+                                    'Stevenson|Stevenson|Alabama|7A6',
+                                    'Talladega Muni|Talladega|Alabama|KASN',
+                                    'Thomas C Russell Fld|Alexander City|Alabama|KALX',
+                                    'Vaiden Field|Marion|Alabama|A08',
+                                    'Walker County-Bevill Field|Jasper|Alabama|KJFX',
+                                    'Wetumpka Muni|Wetumpka|Alabama|08A',
+                                    'Western Carolina Rgnl|Andrews|North Carolina|KRHP',
+                                    'Boone Inc Airport (Private)|Boone|North Carolina|NC14',
+                                    'Mid-Ohio Valley Regional Airport|Parkersburg|West Virginia|KPKB',
+                                    'Akron-Canton Regional Airport|Akron|Ohio|KCAK',
+                                    'Albert J Ellis|Jacksonville|North Carolina|KOAJ',
+                                    'Anson County -Jeff Cloud Field|Wadesboro|North Carolina|KAFP',
+                                    'Asheboro Rgnl|Asheboro|North Carolina|KHBI',
+                                    'Avery County Morrison Field|Spruce Pine|North Carolina|7A8',
+                                    'Billy Mitchell|Hatteras|North Carolina|KHSE',
+                                    'Burlington-Alamance Rgnl|Burlington|North Carolina|KBUY',
+                                    'Cape Fear Rgnl Jetport Howie Franklin Fld|Oak Island|North Carolina|KSUT',
+                                    'Clinton-Sampson County|Clinton|North Carolina|KCTZ',
+                                    'Coastal Carolina Regional|New Bern|North Carolina|KEWN',
+                                    'Columbus County Muni|Whiteville|North Carolina|KCPC',
+                                    'Currituck County Rgnl|Currituck|North Carolina|KONX',
+                                    'Curtis L Brown Jr Field|Elizabethtown|North Carolina|KEYF',
+                                    'Dare County Rgnl|Manteo|North Carolina|KMQI',
+                                    'Davidson County|Lexington|North Carolina|KEXX',
+                                    'Duplin Co|Kenansville|North Carolina|KDPL',
+                                    'Elizabeth City Cg Air Station Rgnl|Elizabeth City|North Carolina|KECG',
+                                    'Elkin Muni|Elkin|North Carolina|KZEF',
+                                    'Foothills Regional|Morganton|North Carolina|KMRN',
+                                    'Gastonia Muni|Gastonia|North Carolina|KAKH',
+                                    'Halifax-Northampton Rgnl|Roanoke Rapids|North Carolina|KIXA',
+                                    'Harnett Rgnl Jetport|Erwin|North Carolina|KHRJ',
+                                    'Henderson Field|Wallace|North Carolina|KACZ',
+                                    'Henderson-Oxford|Oxford|North Carolina|KHNZ',
+                                    'Hickory Rgnl|Hickory|North Carolina|KHKY',
+                                    'Hyde County|Engelhard|North Carolina|7W6',
+                                    'Jackson County|Sylva|North Carolina|24A',
+                                    'Johnston Rgnl|Smithfield|North Carolina|KJNX',
+                                    'Kinston Rgnl Jetport At Stallings Fld|Kinston|North Carolina|KISO',
+                                    'Lincolnton-Lincoln County Rgnl|Lincolnton|North Carolina|KIPJ',
+                                    'Macon County|Franklin|North Carolina|1A5',
+                                    'Martin County|Williamston|North Carolina|KMCZ',
+                                    'Michael J Smith Field|Beaufort|North Carolina|KMRH',
+                                    'Mid-Carolina Rgnl|Salisbury|North Carolina|KRUQ',
+                                    'Montgomery County|Star|North Carolina|43A',
+                                    'Mount Airy Surry County|Mount Airy|North Carolina|KMWK',
+                                    'Mount Olive Muni|Mount Olive|North Carolina|W40',
+                                    'Northeastern Rgnl|Edenton|North Carolina|KEDE',
+                                    'Ocracoke Island|Ocracoke|North Carolina|W95',
+                                    'Odell Williamson Muni|Ocean Isle Beach|North Carolina|60J',
+                                    'Pitt-Greenville|Greenville|North Carolina|KPGV',
+                                    'Plymouth Muni|Plymouth|North Carolina|KPMZ',
+                                    'Raleigh Exec Jetport At Sanford-Lee County|Sanford|North Carolina|KTTA',
+                                    'Raleigh Rgnl At Person County|Roxboro|North Carolina|KTDF',
+                                    'Richmond County|Rockingham|North Carolina|KRCZ',
+                                    'Rockingham County Nc Shiloh|Reidsville|North Carolina|KSIF',
+                                    'Rocky Mount-Wilson Rgnl|Rocky Mount|North Carolina|KRWI',
+                                    'Rutherford Co -Marchman Field|Rutherfordton|North Carolina|KFQD',
+                                    'Shelby-Cleveland County Rgnl|Shelby|North Carolina|KEHO',
+                                    'Siler City Muni|Siler City|North Carolina|KSCR',
+                                    'Stanly County|Albemarle|North Carolina|KVUJ',
+                                    'Statesville Rgnl|Statesville|North Carolina|KSVH',
+                                    'Tarboro-Edgecombe|Tarboro|North Carolina|KETC',
+                                    'Tri-County|Ahoskie|North Carolina|KASJ',
+                                    'Washington-Warren|Washington|North Carolina|KOCW',
+                                    'Wayne Executive Jetport|Goldsboro|North Carolina|KGWW',
+                                    'Wilkes County|North Wilkesboro|North Carolina|KUKF',
+                                    'Wilson Industrial Air Center|Wilson|North Carolina|W03',
+                                    'Coral Creek Airport (landing fees extra)|Boca Grande &amp; Placida|Florida|FA54',
+                                    'Twin County Airport|Galax Hillsville|Florida|KHLX',
+                                    'Summerland Key Cove Airport (Private)|Summerland Key|Florida|FD51',
+                                    'George T Lewis Airport|Cedar Key|Florida|KCDK',
+                                    'Toccoa Airport-RG Letourneau Field|Toccoa|Georgia|KTOC',
+                                    'Charleston Air Force Base-International Airport|Chareston|South Carolina SC|KCHS',
+                                    'Douglas Hunter Field Airport|Portland|Tennessee TN|1M5',
+                            ], TIMERANGE = {
+                START: 700,
+                END: 2000
+            };
+        </script>
+    </head>
+
+<body id="app-layout">
+
+
+<div class="navbar-fixed">
+  <nav class="black-text">
+    <div class="nav-wrapper blue darken-4 ">
+      <div class="container">
+        <a href="/"><img src="https://aviatorservices.com/images/logo-white.svg" class="" style="width:230px;"></a>
+
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons white-text">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li id=""><a class="white-text" href="tel:3052348800"> (305) 234-8800</a></li>
+            <li><a class="white-text" href="/blog">Blog</a></li>
+            <li id="faq-action"><a class="white-text modal-trigger" href="#faqmodal">FAQ</a></li>
+                        <li><a class="white-text" href="/login">Login</a></li>
+            <li><a class="white-text" href="/register">Register</a></li>
+                    </ul>
+        <ul class="side-nav" id="mobile-demo" style="transform: translateX(-100%);">
+            <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+            <li><a class="" href="/blog">Blog</a></li>
+            <li id="faq-action"><a href="#" class="modal-trigger">FAQ</a></li>
+            <li><a class="" href="/privacy">Privacy</a></li>
+            <li><a class="" href="/safety">Safety</a></li>
+            <li><a class="" href="/terms">Terms</a></li>
+            <li><a class="" href="/sitemap">Site Map</a></li>
+                            <li><a href="/login" class="btn indigo white-text">Login</a></li>
+                <li><a href="/register" class="btn blue white-text">Register</a></li>
+                    </ul>
+    </div>
+</div>
+        <form id="bookingform" class="hide-on-small-only">
+	<div id="booking_container" class="row blue darken-5">
+		<div id="booking_logo" class="container row center-align pt-l--s">
+			<img src="https://aviatorservices.com/images/logo-white.svg" class="pb-s--s" style="width:230px;">
+			<p class="h1 white-text">Book Your Flight</p>
+		</div>
+		<div class="container pa-s--s">
+			<div class="row">
+				<div class="col m20">
+					<div class="label-table">
+						<label class="label-cell tw-bold white-text" for="departing_city">Departing Airport</label>
+					</div>
+					<input id="departing_city" type="text" required="required" name="airport_from" autocomplete="off" class="home-inputs autocomplete" placeholder="Search Departing Airport">
+					<div class="searcher">
+						<div class="wrapper"></div>
+					</div>
+				</div>
+				<div class="col m20">
+					<div class="label-table">
+						<label for="arrival_city" class="tw-bold white-text label-cell" style="font-size:14px">Destination
+							Airport</label>
+					</div>
+					<input id="arrival_city" type="text" required="required" name="airport_to" class="home-inputs autocomplete" autocomplete="off" placeholder="Search Destination Airport">
+					<div class="searcher">
+						<div class="wrapper"></div>
+					</div>
+				</div>
+
+				<div class="col m20">
+					<div class="label-table">
+						<label for="depart_date" class="tw-bold white-text label-cell" style="font-size:14px">Date</label>
+					</div>
+					<div class="picker" id="depart_date_root" tabindex="0" aria-hidden="true"><div class="picker__holder"><div class="picker__frame"><div class="picker__wrap"><div class="picker__box"><div class="picker__date-display"><div class="picker__year-display"><div>2025</div></div><span class="picker__weekday-display">Wed, </span><span class="picker__month-display">Jan </span><span class="picker__day-display">15</span></div><div class="picker__container__wrapper"><div class="picker__calendar-container"><div class="picker__header"><select class="picker__select--month browser-default" disabled="" aria-controls="depart_date_table" title="Select a month"><option value="0" selected="">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select><div class="picker__year">2025</div><div class="picker__nav--prev picker__nav--disabled" data-nav="-1" role="button" aria-controls="depart_date_table" title="Previous month"> </div><div class="picker__nav--next" data-nav="1" role="button" aria-controls="depart_date_table" title="Next month"> </div></div><table class="picker__table" id="depart_date_table" role="grid" aria-controls="depart_date" aria-readonly="true"><thead><tr><th class="picker__weekday" scope="col" title="Sunday">S</th><th class="picker__weekday" scope="col" title="Monday">M</th><th class="picker__weekday" scope="col" title="Tuesday">T</th><th class="picker__weekday" scope="col" title="Wednesday">W</th><th class="picker__weekday" scope="col" title="Thursday">T</th><th class="picker__weekday" scope="col" title="Friday">F</th><th class="picker__weekday" scope="col" title="Saturday">S</th></tr></thead><tbody><tr><td role="presentation"><div class="picker__day picker__day--outfocus picker__day--disabled" data-pick="1735448400000" role="gridcell" aria-label="12/29/2024" aria-disabled="true">29</div></td><td role="presentation"><div class="picker__day picker__day--outfocus picker__day--disabled" data-pick="1735534800000" role="gridcell" aria-label="12/30/2024" aria-disabled="true">30</div></td><td role="presentation"><div class="picker__day picker__day--outfocus picker__day--disabled" data-pick="1735621200000" role="gridcell" aria-label="12/31/2024" aria-disabled="true">31</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1735707600000" role="gridcell" aria-label="01/01/2025" aria-disabled="true">1</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1735794000000" role="gridcell" aria-label="01/02/2025" aria-disabled="true">2</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1735880400000" role="gridcell" aria-label="01/03/2025" aria-disabled="true">3</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1735966800000" role="gridcell" aria-label="01/04/2025" aria-disabled="true">4</div></td></tr><tr><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736053200000" role="gridcell" aria-label="01/05/2025" aria-disabled="true">5</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736139600000" role="gridcell" aria-label="01/06/2025" aria-disabled="true">6</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736226000000" role="gridcell" aria-label="01/07/2025" aria-disabled="true">7</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736312400000" role="gridcell" aria-label="01/08/2025" aria-disabled="true">8</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736398800000" role="gridcell" aria-label="01/09/2025" aria-disabled="true">9</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736485200000" role="gridcell" aria-label="01/10/2025" aria-disabled="true">10</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736571600000" role="gridcell" aria-label="01/11/2025" aria-disabled="true">11</div></td></tr><tr><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736658000000" role="gridcell" aria-label="01/12/2025" aria-disabled="true">12</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--disabled" data-pick="1736744400000" role="gridcell" aria-label="01/13/2025" aria-disabled="true">13</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--today" data-pick="1736830800000" role="gridcell" aria-label="01/14/2025" tabindex="0">14</div></td><td role="presentation"><div class="picker__day picker__day--infocus picker__day--selected picker__day--highlighted" data-pick="1736917200000" role="gridcell" aria-label="01/15/2025" aria-activedescendant="true" tabindex="0">15</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737003600000" role="gridcell" aria-label="01/16/2025" tabindex="0">16</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737090000000" role="gridcell" aria-label="01/17/2025" tabindex="0">17</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737176400000" role="gridcell" aria-label="01/18/2025" tabindex="0">18</div></td></tr><tr><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737262800000" role="gridcell" aria-label="01/19/2025" tabindex="0">19</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737349200000" role="gridcell" aria-label="01/20/2025" tabindex="0">20</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737435600000" role="gridcell" aria-label="01/21/2025" tabindex="0">21</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737522000000" role="gridcell" aria-label="01/22/2025" tabindex="0">22</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737608400000" role="gridcell" aria-label="01/23/2025" tabindex="0">23</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737694800000" role="gridcell" aria-label="01/24/2025" tabindex="0">24</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737781200000" role="gridcell" aria-label="01/25/2025" tabindex="0">25</div></td></tr><tr><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737867600000" role="gridcell" aria-label="01/26/2025" tabindex="0">26</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1737954000000" role="gridcell" aria-label="01/27/2025" tabindex="0">27</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1738040400000" role="gridcell" aria-label="01/28/2025" tabindex="0">28</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1738126800000" role="gridcell" aria-label="01/29/2025" tabindex="0">29</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1738213200000" role="gridcell" aria-label="01/30/2025" tabindex="0">30</div></td><td role="presentation"><div class="picker__day picker__day--infocus" data-pick="1738299600000" role="gridcell" aria-label="01/31/2025" tabindex="0">31</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738386000000" role="gridcell" aria-label="02/01/2025" tabindex="0">1</div></td></tr><tr><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738472400000" role="gridcell" aria-label="02/02/2025" tabindex="0">2</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738558800000" role="gridcell" aria-label="02/03/2025" tabindex="0">3</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738645200000" role="gridcell" aria-label="02/04/2025" tabindex="0">4</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738731600000" role="gridcell" aria-label="02/05/2025" tabindex="0">5</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738818000000" role="gridcell" aria-label="02/06/2025" tabindex="0">6</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738904400000" role="gridcell" aria-label="02/07/2025" tabindex="0">7</div></td><td role="presentation"><div class="picker__day picker__day--outfocus" data-pick="1738990800000" role="gridcell" aria-label="02/08/2025" tabindex="0">8</div></td></tr></tbody></table></div><div class="picker__footer"><button class="btn-flat picker__today waves-effect" type="button" data-pick="1736830800000" disabled="" aria-controls="depart_date">Today</button><button class="btn-flat picker__clear waves-effect" type="button" data-clear="1" disabled="" aria-controls="depart_date">Reset</button><button class="btn-flat picker__close waves-effect" type="button" data-close="true" disabled="" aria-controls="depart_date">Done</button></div></div></div></div></div></div></div><input id="depart_date" type="text" required="required" name="depart_date" class="datepicker home-inputs picker__input" data-value="1736965416480" readonly="" tabindex="-1" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="depart_date_root">
+				</div>
+				<div class="col m20">
+					<div class="label-table">
+						<label for="timepicker" class="tw-bold white-text label-cell" style="font-size:14px">Time</label>
+					</div>
+					<input class="timepicker timepickerRount home-inputs" type="text" name="depart_time" data-time-format="h:i A" required="">
+					<div class="time-wrapper">
+					</div>
+				</div>
+				<div class="col m20-split">
+					<div class="label-table hide-on-small-only">
+					</div>
+					<button type="button" id="check_booking" class="btn--f mt-s--s mt-f--m pink darken-1 white-text" value="Check Availabilty" required="">
+						<div id="load_itinerary" class="preloader-wrapper small hide">
+							<div class="spinner-layer spinner-yellow-only">
+								<div class="circle-clipper left">
+									<div class="circle"></div>
+								</div>
+								<div class="gap-patch">
+									<div class="circle"></div>
+								</div>
+								<div class="circle-clipper right">
+									<div class="circle"></div>
+								</div>
+							</div>
+						</div>
+						<span id="availability_text">Search</span>
+					</button>
+					<button type="button" id="booking_close_modal" class="btn--f mt-s--s mt-f--m grey grey-text text-darken-3">
+						Cancel Search
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>  </nav>
+</div>
+
+<div class="hero pa-xs--s pt-m--s pb-m--s">
+  <div class="container">
+    <div class="row">
+      <div class="col m12 l6 right white br-m white z-depth-1 mt-xl--m pa-m--m pa-s--s">
+      <h2 class="tw-bold"><span class="h4 green-text tw-normal text-darken-3 tw-ultrabold"><i class="material-icons" style="vertical-align: bottom;">timer</i>Save time.</span> <br> Enjoy the freedom of private air travel.</h2>
+        <ul>
+          <li class="pt-xs--s pb-xs--s">- Fast, efficient air travel to anywhere in Florida or Southeast. </li>
+          <li class="pt-xs--s pb-xs--s">- Fly in modern three passenger Cirrus SR22 </li>
+          <li class="pt-xs--s pb-xs--s">- Book online anytime</li>
+        </ul>
+        <div class="row mt-m--s">
+          <a href="#" class="init-booking-full btn-large--f pink darken-1 white-text">
+            Search Flights
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row center-align  pa-m--s pt-xl--l pb-xl--l">
+  <div class="container">
+    <div class="row mb-xl--s">
+      <h1 class="blue-text text-darken-4 tw-light">Your plane is waiting.</h1>
+      <h4 class="mt-s--s blue-text text-darken-4 tw-light">
+        Enjoy fast, efficient air travel to anywhere in Florida or Southeast.
+      </h4>
+    </div>
+    <div class="row mt-xl--s">
+      <div class="col m4 center-align pl-s--s pr-s--s">
+        <img src="https://aviatorservices.com/images/i-time.svg" width="100">
+        <h3 class="mt-l--s">Save Time</h3>
+        <p class="mt-m--s left-align">Arrive just minutes before your flight. We never leave without you. You choose your departure times and schedule. No time is wasted waiting for your flight.</p>
+      </div>
+      <div class="col m4 center-align pl-s--s pr-s--s">
+        <img src="https://aviatorservices.com/images/i-safety.svg" width="100">
+        <h3 class="mt-l--s">Safety</h3>
+        <p class="mt-m--s left-align">Fly on the safest, most modern, single-engine plane in the industry: the Cirrus SR22 - the plane with the parachute. Your pilot is highly trained, experienced, and regularly tested by the FAA. Our company is an FAA Certified Air Carrier since 1990 with a perfect safety record.</p>
+      </div>
+      <div class="col m4 center-align pl-s--s pr-s--s">
+        <img src="https://aviatorservices.com/images/i-convenience.svg" width="100">
+        <h3 class="mt-l--s">Convenience</h3>
+        <p class="mt-m--s left-align">Fly from local airports nearest to your home or destination with easy and free parking. Enjoy private air terminals where your rental car or ground transportation will be waiting when you arrive.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="background-color:#fbfbfb;">
+  <div class="container pa-m--m pt-xl--m pb-xl--m">
+    <div class="row">
+      <div class="col m4 hide-on-small-only">
+        <img src="https://aviatorservices.com/images/iphone-ticket.png" width="290">
+      </div>
+      <div class="col m8 pl-m--m pr-m--m pt-l--s pt-f--m black-text">
+        <div class="row">
+          <h2>Check availability, pricing and book your flight anytime using our app. It’s easy, and gives you access to our aircraft anytime you need it.</h2>
+          <h3 class=" tc-black tw-bold blue-text text-darken-3">Enjoy these benefits:</h3>
+        </div>
+        <div class="row mt-m--s">
+          <div class="col m1 s2">
+            <img src="/images/clock.svg">
+          </div>
+          <div class="col m11 s10 pl-m--s">
+            <p>You’ll never miss your flight  </p>
+          </div>
+        </div>
+
+        <div class="row mt-m--s">
+          <div class="col m1 s2">
+            <img src="/images/plane.svg">
+          </div>
+          <div class="col m11 s10 pl-m--s pt-s--m">
+            <p>You can arrive just minutes before departure time. </p>
+          </div>
+        </div>
+
+        <div class="row mt-m--s">
+          <div class="col m1 s2">
+            <img src="/images/airport.svg">
+          </div>
+          <div class="col m11 s10 pl-m--s pt-s--m">
+            <p>Enjoy uncrowded private terminals, with easy and free parking.</p>
+          </div>
+        </div>
+
+        <div class="row mt-m--s">
+          <div class="col m1 s2">
+            <img src="/images/briefcase.svg">
+          </div>
+          <div class="col m11 s10 pl-m--s pt-s--m">
+            <p> Arrive at the nearest local airport to your destination  </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-l--s pt-l--s pb-xl--s">
+  <div class="row">
+    <span class="h2"> Most Popular Destinations </span>
+  </div>
+  <div class="row">
+    <div class="col m4 mt-m--m pa-s--s">
+      <div class="row z-depth-1">
+        <div class="row">
+          <img src="images/florida-keys.jpg">
+        </div>
+        <div class="row pa-s--s pb-m--s" style="height:150px;">
+          <h3>Florida Keys &amp; Key West </h3>
+          <p>
+            Fly to Ocean Reef Club, Marathon or Key West 
+         </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m4 pa-s--s mt-m--m">
+      <div class="row z-depth-1">
+        <div class="row">
+          <img src="images/tallahassee.jpg">
+        </div>
+        <div class="row pa-s--s" style="height:150px;">
+          <h3>Tallahassee</h3>
+          <p>
+            Enjoy day trips to Tallahassee or to anywhere in North Florida
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col m4 pa-s--s mt-m--m">
+      <div class="row z-depth-1">
+        <div class="row">
+           <img src="images/orlando.jpg">
+        </div>
+        <div class="row pa-s--s pl-m--m pr-m--m pbl" style="height:150px;">
+           <h3>Orlando</h3>
+           <p>
+            Orlando has four airports. Near downtown, theme parks, Sanford or Orlando International.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="previous_flight" class="modal" style="z-index: 1009;">
+  <div class="col-6 mhc background-white br-m sad pam">
+    <div class="row">
+      <div class="row background-yellow pas ta-center">
+        <p class="tw-ultrabold h4"> Continue your Previous Booking? </p>
+      </div>
+      <div class="row">
+        <div class="row mtm">
+          <p>We have detected that you have recently tried to book a flight to
+                     would you like to:</p>
+        </div>
+        <div class="row mtm">
+          <div class="col-2of8">
+            <center><a href="/clear" class="btn-a-f btn-red h4">New Flight</a></center>
+          </div>
+          <div class="col-6of8">
+            <center><a href="/itinerary" class="btn-a-f btn-blue h4 t-shadow">Continue This Booking</a></center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Structure -->
+<div id="faqmodal" class="modal modal-fixed-footer" style="z-index: 1011;">
+  <div class="modal-content">
+    <div class="row">
+      <h4 class="h1">FAQ</h4>
+    </div>
+    <div class="row">
+      <div class="col m6 pa-s--s">
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> Where is Aviator Services located? </h4>
+          <p>We're based in Miami, Florida, at the Miami Executive Airport (formerly known as the Tamiami Airport (TMB)). We're located about forty-five minutes from South Beach and near Kendall, Coral Gables, and Pinecrest.</p>
+        </div>
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> What is your service area? </h4>
+          <p>We fly to all cities in Florida and the Southeast USA from our Miami base. &nbsp;Although, our aircraft (Cirrus SR22) is capable of flying to anywhere in the United States, our aircraft is most efficient at distances within 500 miles. &nbsp;We do not offer service to the Bahamas in our Cirrus SR22 due to FAA restrictions for single-engine aircraft flying over water (beyond gliding distance to land).</p>
+        </div>
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> What aircraft do you use? </h4>
+          <p>We fly the technically advanced Cirrus SR22 aircraft. &nbsp;The plane with the parachute. &nbsp;It's like flying in a luxury car with wings. &nbsp;It's fast, comfortable, &nbsp;air-conditioned (Florida summers are hot), and has satellite radio with Bose headphones for you to enjoy quiet entertainment. &nbsp;Generaly we can carry up to 600 lbs (272 Kilos) of passengers and bags. We can often carry more depending on the length of your flight. &nbsp; &nbsp;</p>
+        </div>
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> What are your hours of operation? </h4>
+          <p>Our normal hours of operation are 7AM to 7PM daily but we do, of course, fly outside these normal hours if your trip requires it. &nbsp;During our normal business hours, though, we are available for short notice flights.</p>
+        </div>
+      </div>
+      <div class="col m6 pa-s--s">
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> Do you have larger aircraft? </h4>
+          <p>If you have more than three passengers or otherwise require a larger plane for your trip we can arrange this for you through one of our network operators. &nbsp;We work with several other local aircraft charter operators with a full range of aircraft and experienced crews.&nbsp;</p>
+        </div>
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> How can I pay? </h4>
+          <p>We accept credit cards, cash, checks and Bitcoin for payment. &nbsp;We require full payment in advance of your flight unless you have a business account with us. &nbsp;</p>
+        </div>
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> Do you arrange ground transportation?</h4>
+          <p>We can arrange for rental cars, car service, or taxi at your destination so you can be on your way soon after you arrive. &nbsp;Let us know when you reserve your flight if you require ground transportation at your destination. &nbsp;Also, we arrange transfers to or from airline terminals if you are departing on or returning from an airline flight. &nbsp;We do this often at Miami International Airport.&nbsp;</p>
+        </div>
+        <div class="row mt-s--s">
+          <h4 class="tw-ultrabold"> Special requests?</h4>
+          <p>Please advise us of any special request you may have about your flight. Some customers ask us to overfly a landmark to take pictures or if a specific person can sit next to the pilot during flight. Please ask and we'll make every effort to satisfy your request.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-blue btn blue white-text">Close</a>
+  </div>
+</div>
+
+<script>window.settings = {"minimal_booking_hours":".3","url":"admin\/settings"};</script><footer class="page-footer blue darken-5 ">
+    <div class="container">
+        <div class="row pt-l--m pb-l--s">
+            <div class="col s12 center-align">
+                <div class="row pl-m--s pr-m--s pl-f--m pr-f--m">
+                    <img src="https://aviatorservices.com/images/logo-white.svg" width="400" class="mb-s--s">
+                    <div>
+                        <small class="white-text">An FAA Certified Air Carrier operating under part 135 of the Federal Aviation Regulations</small>
+                    </div>
+                </div>
+                <div class="row">
+                        <ul class="classic-list">
+                            <li class="mt-s--s"><a class="grey-text text-lighten-3 h5" href="/blog"><i class="material-icons mr-s--s">create</i> Blog</a></li>
+                            <li class="mt-s--s" id="faq-action"><a class="grey-text text-lighten-3 h5 modal-trigger" href="#faqmodal"><i class="material-icons mr-s--s">info_outline</i> FAQ</a></li>
+                            <li class="mt-s--s"><a class="grey-text text-lighten-3 h5" href="/privacy"><i class="material-icons mr-s--s">lock</i> Privacy</a></li>
+                            <li class="mt-s--s"><a class="grey-text text-lighten-3 h5" href="/safety"><i class="material-icons mr-s--s">report_problem</i> Safety</a></li>
+                            <li class="mt-s--s"><a class="grey-text text-lighten-3 h5" href="/terms"><i class="material-icons mr-s--s">gavel</i> Terms</a></li>
+                            <li class="mt-s--s"><a class="grey-text text-lighten-3 h5" href="/sitemap"><i class="material-icons mr-s--s">toc</i> Site Map</a></li>
+                        </ul>
+                </div>
+                <div class="row mt-m--s">
+                    <a class="modal-trigger waves-effect waves-light btn btn-round pink white-text" href="#contact_modal"><i class="material-icons mr-s--s">email</i>Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+ <div id="contact_modal" class="modal" style="z-index: 1013;">
+    <div class="modal-content">
+      <h3 class="blue-text text-darken-3"> Contact Us</h3>
+      <p>Thanks for trying to get in touch with us, we will get back to you as soon as possible </p>
+        <div id="contactFormResponse"></div>        
+        <div id="contactFormErrors"></div>        
+        <form id="contactForm" class="col s12">
+            <input type="hidden" name="_token" value="KaLNfo5HrqVAN9iAZyhXsL9L0RfFarY8jvKYcxEd">
+            <div class="row mt-m--m mt-s--s">
+                <div class="col s6 pr-s--s pr-s--m">
+                    <label for="full_name" class="black-text tw-ultrabold active">Full Name</label>
+                    <input placeholder="Full Name" id="full_name" type="text" name="name" required="">
+
+                </div>
+                <div class="col s6 pl-s--s pl-s--m">
+                    <div class="form-group"> 
+                        <label for="phone" class="black-text tw-ultrabold  active">Phone number</label>
+                        <input class="form-control bordered" id="phone" placeholder="Phone number" type="tel" name="phone" autocapitalize="off">                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label for="email" class="black-text tw-ultrabold active">Email</label>
+                    <input placeholder="email" id="email" type="email" name="email" required="">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col s12">
+                    <label for="Message" class="black-text tw-ultrabold active">Message</label>
+                    <textarea id="Message" class="materialize-textarea" placeholder="Message" name="msg" required=""></textarea>
+
+                </div>
+            </div>
+            <script src="https://www.google.com/recaptcha/api.js?hl=en" async="" defer=""></script><div class="g-recaptcha" id="buzzNoCaptchaId_fceaf53c42d3765c681606e08585a2a5" data-sitekey="6LfGFHoUAAAAAGsp121GNcJt2nVw_A0IhgLxD4Pu"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-a4ymbz5t6hk" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfGFHoUAAAAAGsp121GNcJt2nVw_A0IhgLxD4Pu&amp;co=aHR0cHM6Ly9hdmlhdG9yc2VydmljZXMuY29tOjQ0Mw..&amp;hl=en&amp;v=zIriijn3uj5Vpknvt_LnfNbF&amp;size=normal&amp;cb=514ys7plai7z"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+            <div class="row mt-m--s">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-large left grey lighten-2 grey-text text-darken-1 z-depth-0">Cancel</a>
+                <button type="submit" class=" right btn-large pink darken-2 white-text">Send</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+
+
+<!-- JavaScripts -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/field-kit/2.1.0/field-kit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/plugin/utc.min.js" integrity="sha512-TU4ndEYOqql+pMXn14M8RDWsjjD+VPUA2RoWSuuFd+blPJW4oLrL1w1zAGdlrk4jsE2FEBH5CU3+fmogVYEqIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/build/js/vendor-670876864e.js"></script>
+<script src="/build/js/main-13aa2a3ae3.js"></script><div class="drag-target" data-sidenav="mobile-demo" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+<script src="/js/sweetalert2.js"></script>
     <script>
-      const button = document.querySelector("button");
+        const $CONTACT_FORM = $('#contactForm');
+        const $CONTACT_FORM_RESPONSE = $('#contactFormResponse');
+        const $CONTACT_FORM_ERRORS   = $('#contactFormErrors');
 
-      button.addEventListener("click", updateName);
+        $CONTACT_FORM.submit(function(e){
+            e.preventDefault();
 
-      function updateName() {
-        const name = prompt("Enter a new name");
-        button.textContent = `Player 1: ${name}`;
-      }
+            $CONTACT_FORM_RESPONSE.empty();
+            $CONTACT_FORM_ERRORS.empty();
+
+            var formData = $(this).serialize();
+            
+            $.ajax({
+                url: '/contact',
+                type: 'POST',
+                data: formData,
+                success: function(resp){
+                    var message = resp.message;
+                    $CONTACT_FORM_RESPONSE.append('<div class="alert alert-success mb-s--s">'+message+'</div');
+                },
+                error: function(err){
+                    $.each(err.responseJSON, function(key,value) {
+                        $CONTACT_FORM_ERRORS.append('<div class="alert alert-danger mb-s--s">'+value+'</div');
+                    }); 
+                }
+            })
+        });
     </script>
-  </body>
-</html>
+
+<!--Custom JS-->
+
+<script>
+    $(document).ready(function () {
+        
+
+        
+        dayjs.extend(dayjs_plugin_utc)
+
+        var telInputs = document.querySelectorAll('input[type=tel]');
+        
+        for(var i = 0; i < telInputs.length; i++) {
+            new FieldKit.TextField(telInputs[i], new FieldKit.PhoneFormatter());
+        }
+
+      $('#depart_date').mousedown(function(e) {
+        e.preventDefault();
+      });
+    });
+</script>
+
+
+<!--Display notifications-->
+
+
+<div class="hiddendiv common"></div><div class="ui-timepicker-container ui-timepicker-hidden ui-helper-hidden" style="display: none;"><div class="ui-timepicker ui-widget ui-widget-content ui-menu ui-corner-all"><ul class="ui-timepicker-viewport"></ul></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-a4ymbz5t6hk" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=zIriijn3uj5Vpknvt_LnfNbF&amp;k=6LfGFHoUAAAAAGsp121GNcJt2nVw_A0IhgLxD4Pu" style="width: 100%; height: 100%;"></iframe></div></div></body></html>
