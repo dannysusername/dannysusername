@@ -1,5 +1,37 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JavaScript label example</title>
+    <style>
+      button {
+        font-family: "helvetica neue", helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: center;
+        border: 2px solid rgb(200 200 0 / 0.6);
+        background: rgba(0, 217, 217, 0.6);
+        color: rgb(100 0 0 / 1);
+        box-shadow: 1px 1px 2px rgb(0 0 200 / 0.4);
+        border-radius: 10px;
+        padding: 3px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button">Player 1: Chris</button>
 
-<html style="height: 100%;"><head><meta name="viewport" content="width=device-width, minimum-scale=0.1"><title>07REAL2_SPAN-articleLarge.jpg (600×360)</title></head><body style="margin: 0px; height: 100%; background-color: rgb(14, 14, 14);"><img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://static01.nyt.com/images/2011/10/07/arts/07REAL2_SPAN/07REAL2_SPAN-articleLarge.jpg?quality=75&amp;auto=webp&amp;disable=upscale"></body></html>
+    <script>
+      const button = document.querySelector("button");
 
+      button.addEventListener("click", updateName);
 
+      function updateName() {
+        const name = prompt("Enter a new name");
+        button.textContent = `Player 1: ${name}`;
+      }
+    </script>
+  </body>
+</html>
