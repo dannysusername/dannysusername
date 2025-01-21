@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang= "en-US">
+
+<head>
+  <meta name="author" content="Daniel Ibarra>
+  <meta name="description" content="Danny's education">
+  <meta name= "viewport" width=device-width, initial-size = 1.0">
+  <meta charset="utf=8"/>
+  <title>Dannys education</title>
+  <link rel = "" href = ""/>
+</head>
+
+<body>
+  <main>
+  <header>
+    <h1>Dannys education</h1>
+  </header>
+
+  <section>
+    <h2>Bachelor of Science in Computer Science, <abbr title="Florida International University">FIU</abbr></h2>
+  </section>
+ 
+  
+  </main>
+
+  <footer>
+  </footer>
+</body>
+</html>
