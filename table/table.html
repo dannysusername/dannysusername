@@ -10,6 +10,24 @@
   <title>Daniel Ibarra</title> <!--title puts 'Daniel Ibarra' in tab browser-->
   <link rel="stylesheet" href="../style.css"/>
   <script src="" defer></script>
+
+  <style> 
+
+  fieldset {
+   /* Center the form on the page */
+    text-align: center;
+}
+
+  form {
+    
+    /* Form outline */
+    display: inline-block;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+  </style>
+
 </head>
  
 <body>
@@ -31,21 +49,104 @@
     <li><a href="../education/education.html">Education</a></li>
     <li><a href="../about-me/about-me.html">About me</a></li>
     <li><a href="../contact-info/contact-info.html">Contact info</a></li>
-    <li><a href="table.html">Table</a></li>
+    <li>Table</li>
+    <li><a href="../myshop/myshop.html">Shop</a></li>
     <li><a href="../index.html">Home page</a></li>
   
   </ul></nav>
 
   <table>
+    <caption>
+      Test table
+    </caption>
+
+    <thead>
     <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-      <th>Col 3</th>
-      <th>Col 4</th>
-      <th>Col 5</th>
-      <th>Col 6</th>
+      <th>----</th>
+      <th id = "Spain">Spain</th>
+      <th id = "France">France</th>
+      <th id = "England">England</th>
+      <th id = "Canada">Canada</th>
+      <th id = "Italy">Italy</th>
     </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <th scope = "row">Row 1</th>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>      
+    </tr>
+    <tr>
+      <th scope = "row">Row 2</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <th scope = "row">Row 3</th>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+     <tr>
+      <th scope = "row">Row 4</th>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <th scope = "row">Row 5</th>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    </tbody>
+
+    <tfoot> 
+    <tr>
+      <th scope = "row">Sum</th>
+      <td>-- </td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    </tfoot> 
   </table>
+
+<fieldset>
+  <legend>Questions, comments or concerns?</legend>
+  <form action="" method="">
+    <p>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="user_name" />
+    </p>
+    <p>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="user_email" />       
+    </p>
+    <p>
+      <label for="message">Message: </label>
+      <textarea id="message" name="user_message"></textarea>
+    </p>
+    <p class="button">
+      <button type = "submit"> Send message! </button>
+      </button
+    </p>
+  </form>
+</fieldset>
 
 <address>
   <footer>

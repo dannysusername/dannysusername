@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>
+ <!--head is meant for metadata-->
+  <meta name="author" content="Daniel Ibarra">
+  <meta name="description" content="Danny is an aspiring Software Engineer specializing in Full Stack software engineering with Java.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--this deals with how the webpage is seen on other devices, width is set to the devices width, webpage is optimized to any device-->
+  <meta charset="utf-8"/>
+  <title>Daniel Ibarra</title> <!--title puts 'Daniel Ibarra' in tab browser-->
+  <link rel="stylesheet" href="../style.css"/>
+  <script src="" defer></script>
+
+<style>
+p + p {
+  margin-top: 1em;
+}
+
+label {
+  /* Uniform size & alignment */
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+input,
+textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, text areas have a monospace font */
+  font: 1em sans-serif;
+  /* Uniform text field size */
+  width: 300px;
+  box-sizing: border-box;
+  /* Match form field borders */
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  /* Set the outline width and style */
+  outline-style: solid;
+  /* To give a little highlight on active elements */
+  outline-color: #000;
+}
+
+textarea {
+  /* Align multiline text fields with their labels */
+  vertical-align: top;
+  /* Provide space to type some text */
+  height: 5em;
+}
+
+.button {
+  /* Align buttons with the text fields */
+  padding-left: 90px; /* same size as the label elements */
+}
+
+button {
+  /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  margin-left: 0.5em;
+}
+
+
+  </style>
+   
+</head>
+ 
+<body>
+<main>
+  <header class="head-wrapper">
+    <h1>Dannys digital footprint</h1>   
+  </header>
+
+  <div class="body-wrapper">
+    <img src="../images/LinkedInPP.jpeg" alt="Daniel Ibarra is a twenty two year old Cuban-American who is an aspiring software engineer" width="150" height="150" title="Daniel Ibarra's LinkedIn profile picture"/>
+    <p><a href="https://www.linkedin.com/in/danielibarra2020/"> 
+    <img src = https://i0.wp.com/bootcampdigital.com/wp-content/uploads/2020/01/LinkedIn-Logo-LineArt.png?fit=1054%2C1087&ssl=1 title="LinkedIn's logo; LinkedIn is an app that connects professionals to other professionals, employers and students."
+    alt="LinkedIn" width="100" height="100"/> </a></p>
+    <time datetime="2025-01-17">17 January 2025</time>
+  </div>
+
+  <nav><ul>
+    <li><a href="../projects/projects.html">Projects</a></li>
+    <li><a href="../education/education.html">Education</a></li>
+    <li><a href="../about-me/about-me.html">About me</a></li>
+    <li><a href="../contact-info/contact-info.html">Contact info</a></li>
+    <li><a href="../table/table.html">Table</a></li>
+    <li>Shop</li>
+    <li><a href="../index.html">Home page</a></li>
+  </ul></nav>
+
+  <form>
+    <section>
+  <h2>Contact information</h2>
+  <fieldset>
+    <legend>Title</legend>
+    <ul>
+      <li>
+        <label for="title_1">
+          <input type="radio" id="title_1" name="title" value="A" />
+          Ace
+        </label>
+      </li>
+      <li>
+        <label for="title_2">
+          <input type="radio" id="title_2" name="title" value="K" />
+          King
+        </label>
+      </li>
+      <li>
+        <label for="title_3">
+          <input type="radio" id="title_3" name="title" value="Q" />
+          Queen
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <p>
+    <label for="name">
+      <span>Name: </span>
+      <strong><span aria-label="required">*</span></strong>
+    </label>
+    <input type="text" id="name" name="username" required />
+  </p>
+  <p>
+    <label for="mail">
+      <span>Email: </span>
+      <strong><span aria-label="required">*</span></strong>
+    </label>
+    <input type="email" id="mail" name="user-mail" required />
+  </p>
+  <p>
+    <label for="pwd">
+      <span>Password: </span>
+      <strong><span aria-label="required">*</span></strong>
+    </label>
+    <input type="password" id="pwd" name="password" required />
+  </p>
+</section>
+
+<section>
+  <h2>Payment information</h2>
+  <p>
+    <label for="card">
+      <span>Card type:</span>
+    </label>
+    <select id="card" name="user-card">
+      <option value="visa">Visa</option>
+      <option value="mc">Mastercard</option>
+      <option value="amex">American Express</option>
+    </select>
+  </p>
+  <p>
+    <label for="number">
+      <span>Card number:</span>
+      <strong><span aria-label="required">*</span></strong>
+    </label>
+    <input type="tel" id="number" name="card-number" required />
+  </p>
+  <p>
+    <label for="expiration">
+      <span>Expiration date:</span>
+      <strong><span aria-label="required">*</span></strong>
+    </label>
+    <input
+      type="text"
+      id="expiration"
+      name="expiration"
+      required
+      placeholder="MM/YY"
+      pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" />
+  </p>
+</section>
+
+<section>
+  <p>
+    <button type="submit">Validate the payment</button>
+  </p>
+</section>
+
+
+
+  </form>
+
+</main>
+
+<address>
+  <footer>
+    <hr />
+    <p>Contact support at: <a href="mailto:dannyssupportcrew@gmail.com">dannyssupportcrew@gmail.com</a></p>
+  </footer>
+</address>
+
+</body>
+</html>
