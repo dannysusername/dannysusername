@@ -1,14 +1,72 @@
-h1,h2{
+h1{
+    color: black;
+    border-bottom: thick double #32a1ce;
+}
+
+h2{
     color: #FF4500;
 }
+/*Changes color of heading1 and heading2 to color: #FF4500*/
 
 h3{
     color: blue;
 }
 
+body {
+    font-family: Helvetica, serif;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 0;
+  
+}
+
+nav ul{
+     display: flex;
+     justify-content: space-between;
+     background-color: rgba(173, 216, 230, 0.5);
+     padding: 32px;
+     margin: 0;
+     border: 1px solid black;
+}
+
+nav ul li{
+     display: inline-block;   
+}
+
+nav li:first-child{ 
+     margin-left: 28px;     
+}
+
+nav li:last-child{ 
+     margin-right: 28px;     
+}
+
+.education-page .fiu img {     
+     background-color: rgba(218, 177, 94, 0.85);     
+     display: block;
+     margin: auto;
+}
+    
+
+
+
+.contact-info {
+     width: 325px;
+     height: 180px;
+     font-size: 18px;
+     background-color: rgba(173, 216, 230, 0.5);
+     border: 5px double blue;
+     padding: 0px 10px;
+}
+
 
 .head-wrapper {
     text-align: center;
+}
+
+.body-wrapper {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .body-wrapper .pp {
@@ -17,15 +75,19 @@ h3{
     box-sizing: border-box;
 }
 
-.body-wrapper {
-    text-align: center;
-    margin-top: 20px;
+button {
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .currentpage {
     color: #E83250;
     
 }
+
 
 span{
     color:red;
@@ -35,5 +97,10 @@ a:visited {
     text-decoration: none;
     color: green;
 
+}
+
+a:Hover {
+    text-decoration: none;
+    color: black;
 }
 
