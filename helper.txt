@@ -1,0 +1,9 @@
+.education-page .fiu figure {
+     background-color: rgba(218, 177, 94, 0.85); 
+     margin: 0;
+     padding: 20px;
+   & img {    
+     display: flex;
+     margin: auto;
+     }
+}

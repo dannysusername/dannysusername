@@ -27,10 +27,13 @@ nav ul{
      padding: 32px;
      margin: 0;
      border: 1px solid black;
+
+
+  li{
+     display: inline-block;   
+     
 }
 
-nav ul li{
-     display: inline-block;   
 }
 
 nav li:first-child{ 
@@ -41,14 +44,17 @@ nav li:last-child{
      margin-right: 28px;     
 }
 
-.education-page .fiu img {     
-     background-color: rgba(218, 177, 94, 0.85);     
-     display: block;
+.education-page .fiu figure {
+     background-color: rgba(218, 177, 94, 0.85); 
+     margin: 0;
+     padding: 20px;
+   & img {    
+     display: flex;
      margin: auto;
+     }
 }
-    
 
-
+ 
 
 .contact-info {
      width: 325px;
@@ -60,28 +66,37 @@ nav li:last-child{
 }
 
 
-.head-wrapper {
+.about-me-head {
     text-align: center;
-}
 
-.body-wrapper {
+~ .body-wrapper {
     text-align: center;
     margin-top: 20px;
-}
 
-.body-wrapper .pp {
+   & .pp {
     border: 2px solid black;
     padding: 5px;
     box-sizing: border-box;
+   }
+
 }
+
+
+}
+
+
+/*centers profile pic in about-me*/
 
 button {
   transition: all 0.3s ease;
-}
-button:hover {
+
+  &:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
 }
+
 
 .currentpage {
     color: #E83250;
@@ -93,14 +108,16 @@ span{
     color:red;
 }
 
-a:visited {
+a {
+  &:visited {
     text-decoration: none;
     color: green;
+  }
 
-}
-
-a:Hover {
+  &:Hover {
     text-decoration: none;
     color: black;
+  }
+
 }
 
