@@ -1,17 +1,21 @@
+/* specificity: 0 0 1*/
 h1{
     color: black;
     border-bottom: thick double #32a1ce;
 }
 
-h2{
+/* specificity: 0 0 1*/
+h2{ 
     color: #FF4500;
 }
-/*Changes color of heading1 and heading2 to color: #FF4500*/
 
+
+/* specificity: 0 0 1*/
 h3{
     color: blue;
 }
 
+/* specificity: 0 0 1*/
 body {
     font-family: Helvetica, serif;
     font-weight: bold;
@@ -20,6 +24,7 @@ body {
   
 }
 
+/* specificity: 0 0 2*/
 nav ul{
      display: flex;
      justify-content: space-between;
@@ -28,13 +33,15 @@ nav ul{
      margin: 0;
      border: 1px solid black;
 
-
-  li{
+/* specificity: 0 0 3*/
+  & li{
      display: inline-block;   
      
-}
+  }
 
 }
+
+/* specificity: 0 1 2*/
 
 nav li:first-child{ 
      margin-left: 28px;     
@@ -44,17 +51,74 @@ nav li:last-child{
      margin-right: 28px;     
 }
 
-.education-page .fiu figure {
-     background-color: rgba(218, 177, 94, 0.85); 
-     margin: 0;
-     padding: 20px;
-   & img {    
-     display: flex;
-     margin: auto;
-     }
+/*
+#Education {
+ background-image: url("education/images/fiu-campus.jpg");
+ background-size: 100%;
 }
+*/
 
- 
+.education-page .fiu {  
+
+    & h2 {
+     text-align: center;
+   }
+    
+    & figure {
+     margin: 0;
+     padding: 150px;
+     background-color: rgba(218, 177, 94, 0.85);      
+     
+      & img {    
+        display: flex;
+        margin: auto;
+      }
+    }
+
+    & .inline-container {
+      display: inline-flex; 
+
+      & div {
+
+      /*box-sizing: border-box;*/
+      
+      width: 45vw;
+      height: 45vh;
+      border: solid 2px;
+      margin: 20px;
+     
+      /*background-image: linear-gradient(
+    90deg,
+    rgb(119 0 255 / 39%),
+    rgb(0 212 255 / 100%)
+);*/
+
+      
+        & > h3 {
+         text-align: center;
+       }
+
+        & > ul {
+        
+        margin-left: 30px;
+        }
+      }
+
+
+       & .gpa-box{
+       display: flex;
+       
+       & .gpa{
+         border: solid 2px;
+         margin: auto;
+       }
+     }
+   }
+
+     & .block-container {
+       display: block;
+     }        
+}
 
 .contact-info {
      width: 325px;
@@ -64,7 +128,6 @@ nav li:last-child{
      border: 5px double blue;
      padding: 0px 10px;
 }
-
 
 .about-me-head {
     text-align: center;
@@ -80,7 +143,6 @@ nav li:last-child{
    }
 
 }
-
 
 }
 
@@ -114,10 +176,12 @@ a {
     color: green;
   }
 
-  &:Hover {
+  &:hover {
     text-decoration: none;
     color: black;
   }
 
 }
+
+
 

@@ -1,9 +1,104 @@
-.education-page .fiu figure {
-     background-color: rgba(218, 177, 94, 0.85); 
-     margin: 0;
-     padding: 20px;
-   & img {    
-     display: flex;
-     margin: auto;
-     }
-}
+section class = "fiu">
+  <figure class = "fiu-eng-pic">
+  <img src = "images/fiu-eng&comp.png"  alt = "FIU Engineering and Computing logo" height= 400px width = 400px/>
+  </figure>
+
+  <h2 id="Education">Bachelor of Science Computer Science </h2>
+    
+  <div class = "block-container">
+    <div class = "inline-container">
+      <div>
+        <h3>Classes</h3>
+          <ul>
+            <li>Data Structures</li>
+            <li>Java Programming</li>
+            <li>Systems Programming</li>
+            <li>Calculus 1 & Calculus 2</li>
+            <li>Theory of Algorithms</li>
+            <li>Statistics</li>
+            <li>Artificial Intelligence</li>
+          </ul>
+       </div>
+
+       <div class = "gpa-box">
+         <h3 class = "gpa"><strong>GPA: 3.7 </strong></h3>
+       </div>
+      </div>
+
+      <div class = "inline-container">
+        <div>
+          <h3>Certificates</h3>
+          <ul>
+            <li>Moocfi Java Programming 1</li>
+            <li>Moocfi Java Programming 2</li>
+            <li>Blockchain and Cryptocurrency</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Affiliations</h3>
+          <ul>
+            <li>INIT</li>
+            <li>Programming Club</li>
+            <li>Major League Hacking</li>
+           </ul>
+      </div>
+    </div>
+  </div>    
+
+  </section>
+
+
+
+///
+
+
+ 
+  <section class = "fiu">
+    <figure class = "fiu-eng-pic">
+    <img src = "images/fiu-eng&comp.png"  alt = "FIU Engineering and Computing logo" height= 400px width = 400px/>
+    </figure>
+
+    <h2 id="Education">Bachelor of Science Computer Science </h2>
+    
+    <div class = "inline-container">
+    <div>
+    <h3>Classes</h3>
+    <ul>
+      <li>Data Structures</li>
+      <li>Java Programming</li>
+      <li>Systems Programming</li>
+      <li>Calculus 1 & Calculus 2</li>
+      <li>Theory of Algorithms</li>
+      <li>Statistics</li>
+      <li>Artificial Intelligence</li>
+    </ul>
+    </div>
+
+    <div class = "gpa-box">
+    <h3 class = "gpa"><strong>GPA: 3.7 </strong></h3>
+    </div>
+    </div>
+    
+    <div class = "block-container">
+    <div class = "inline-container">
+    <div>
+    <h3>Certificates</h3>
+      <ul>
+        <li>Moocfi Java Programming 1</li>
+        <li>Moocfi Java Programming 2</li>
+        <li>Blockchain and Cryptocurrency</li>
+      </ul>
+     </div>
+  <div>
+    <h3>Affiliations</h3>
+      <ul>
+        <li>INIT</li>
+        <li>Programming Club</li>
+        <li>Major League Hacking</li>
+      </ul>
+     </div>
+     </div>
+     </div>
+    
+
+  </section>
