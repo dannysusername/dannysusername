@@ -17,21 +17,78 @@ h3{
 
 /* specificity: 0 0 1*/
 body {
+    /* cssfontstack.com website maintains a list of web safe fonts available on Windows */
     font-family: Helvetica, serif;
     font-weight: bold;
     font-size: 25px;
-    padding: 0;
+    margin: 2px;
   
+}
+
+.about {
+
+    display: flex;
+    margin: 10px;   
+    
+    
+
+     & section:first-child, section:last-child {
+        padding: 30px;
+        color: green;	
+        flex: 1 0 min-content;
+        overflow-y: scroll; 
+           
+        
+       
+                      
+     }
+    
+    & section:first-child > .body-wrapper {
+       display: flex;
+       flex-direction: column;
+       
+       
+   }
+
+     section + section:not(:first-child):not(:last-child) {
+               flex: 0 0 65%; 
+
+               
+    }
+
+
+}
+
+a {
+
+  &:link {
+     color: black;
+     
+    
+  }
+
+  &:visited {
+    text-decoration: none;
+    
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+
 }
 
 /* specificity: 0 0 2*/
 nav ul{
      display: flex;
+     flex-grow: 1;
      justify-content: space-between;
-     background-color: rgba(173, 216, 230, 0.5);
+     background-color: white;
      padding: 32px;
      margin: 0;
-     border: 1px solid black;
+     border: 1px solid black; 
+     border-radius: 5px; 
 
 /* specificity: 0 0 3*/
   & li{
@@ -59,6 +116,8 @@ nav li:last-child{
 */
 
 .education-page .fiu {  
+    
+
 
     & h2 {
      text-align: center;
@@ -77,6 +136,7 @@ nav li:last-child{
 
     & .inline-container {
       display: inline-flex; 
+      
 
       & div {
 
@@ -84,15 +144,19 @@ nav li:last-child{
       
       width: 45vw;
       height: 45vh;
-      border: solid 2px;
+      /*https://pickcoloronline.com*/
+      border: #002d62 solid 2px;
+      border-radius: 1.4em;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
       margin: 20px;
-     
-      /*background-image: linear-gradient(
-    90deg,
-    rgb(119 0 255 / 39%),
-    rgb(0 212 255 / 100%)
-);*/
+      overflow-y: scroll;
 
+     
+     
+      /* used https://cssgradient.io/ */
+      background: rgb(218,177,94);
+      background: linear-gradient(90deg, rgba(218,177,94,0.85) 15%, rgba(2,0,36,0) 54%, rgba(0,212,255,0.500437675070028) 92%);
       
         & > h3 {
          text-align: center;
@@ -109,7 +173,7 @@ nav li:last-child{
        display: flex;
        
        & .gpa{
-         border: solid 2px;
+         
          margin: auto;
        }
      }
@@ -120,20 +184,45 @@ nav li:last-child{
      }        
 }
 
-.contact-info {
-     width: 325px;
-     height: 180px;
-     font-size: 18px;
-     background-color: rgba(173, 216, 230, 0.5);
-     border: 5px double blue;
-     padding: 0px 10px;
+form {
+        
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     
+
+    & fieldset {
+
+      margin: 1em;
+      background-color: rgba(173, 216, 230, 0.5); 
+      border: 5px double blue; 
+      width: 450px;
+      height: 285px;
+      
+      
+
+    & legend {
+       background-color: white;
+       border: 2px solid blue;
+       padding: 5px;
+       color: red;
+    }
+
+   }
 }
 
-.about-me-head {
-    text-align: center;
 
-~ .body-wrapper {
+
+.about-me-head
     text-align: center;
+      
+}
+
+
+
+/*
+~ .body-wrapper {
+    
     margin-top: 20px;
 
    & .pp {
@@ -145,6 +234,7 @@ nav li:last-child{
 }
 
 }
+*/
 
 
 /*centers profile pic in about-me*/
@@ -170,18 +260,9 @@ span{
     color:red;
 }
 
-a {
-  &:visited {
-    text-decoration: none;
-    color: green;
-  }
 
-  &:hover {
-    text-decoration: none;
-    color: black;
-  }
 
-}
+
 
 
 

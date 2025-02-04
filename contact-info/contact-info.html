@@ -10,6 +10,27 @@
   <title>Daniel Ibarra</title> <!--title puts 'Daniel Ibarra' in tab browser-->
   <link rel="stylesheet" href="../style.css"/>
   <script src="" defer></script>
+
+
+ <style> 
+/*
+  fieldset {
+   /* Center the form on the page */
+    text-align: center;
+}
+
+  form {
+    
+    /* Form outline */
+    display: inline-block;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+*/
+  </style>
+
+
 </head>
  
 <body>
@@ -20,20 +41,44 @@
     <li><a href="../education/education.html">Education</a></li>
     <li><a href="../about-me/about-me.html">About me</a></li>
     <li>Contact Info</li>
-    <li><a href="../table/table.html">Table</a></li>
-    <li><a href="../myshop/myshop.html">Shop</a></li>
     <li><a href="../index.html">Home page</a></li>
   </ul>
 
-</nav>
+  </nav>
 
-  <article class ="contact-info">
-    <h2 id="Contact">Contact info</h2>
-      <address>
-        <p>Email: dannibar201@gmail.com <br>Phone: 3059652549</p>
+  
+<form form="qcc" name="qcc">
+  <fieldset class = "feedback" id="qcc">
+    <legend>Questions, comments or concerns?</legend>
+    <p>
+      <label for="name">Name: </label>
+      <input type="text" name="name" id="name" />
+    </p>
+    <p>
+      <label for="email">Email: </label>
+      <input type="email" name="email" id= "email"/>
+    </p>
+    <p>
+      <label for="message">Message: </label>
+      <textarea  name="message" id="message">Enter message here.</textarea>
+    </p>
+    <p>
+       <button type = "submit"> Send message </button>
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Contact info</legend>
+
+    <p>Email: dannibar201@gmail.com <br>Phone: (305)-965-2549</p>
         <p>Miami, Fl United States of America</p>
-      </address>
-  </article>
+
+  </fieldset>
+
+</form>
+
+
+
 
 </main>
 <address>
