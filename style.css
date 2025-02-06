@@ -1,3 +1,6 @@
+
+
+
 /* specificity: 0 0 1*/
 h1{
     color: black;
@@ -21,43 +24,72 @@ body {
     font-family: Helvetica, serif;
     font-weight: bold;
     font-size: 25px;
-    margin: 2px;
-  
+    margin: 0px;
+   
+    
 }
+
+
+main{
+    height: 100%;
+    
+}
+
 
 .about {
 
     display: flex;
-    margin: 10px;   
-    
+    margin: 0px;   
     
 
-     & section:first-child, section:last-child {
-        padding: 30px;
-        color: green;	
-        flex: 1 0 min-content;
-        overflow-y: scroll; 
-           
-        
+/* 0 2 1 */
+     & section:first-child {
        
-                      
-     }
-    
-    & section:first-child > .body-wrapper {
+     > .body-wrapper {
        display: flex;
        flex-direction: column;
        
        
    }
+}
 
+    & section:last-child{
+	
+    & h2 {
+ 	margin: 0px;
+}
+}
+
+/*0 1 1*/
+     & section:first-child, section:last-child {
+      
+        position: sticky;
+        top: 95px;
+        padding: 30px;
+        color: green;	
+        flex: 1 0 min-content;
+        overflow-y: hidden;   
+        height: 100%;    
+
+}
+
+      section:first-child:hover, section:last-child:hover{
+         overflow-y: scroll;
+     }
+                   
+     
+    
+    
+/*0 2 2*/
      section + section:not(:first-child):not(:last-child) {
                flex: 0 0 65%; 
-
                
     }
 
 
 }
+
+
 
 a {
 
@@ -79,8 +111,23 @@ a {
 
 }
 
-/* specificity: 0 0 2*/
-nav ul{
+/* specificity: 0 0 2 */
+
+
+
+
+nav {
+
+position: sticky;
+width: 100%;
+top: 0px;
+z-index: 1;
+
+& ul {
+
+
+     
+
      display: flex;
      flex-grow: 1;
      justify-content: space-between;
@@ -89,12 +136,16 @@ nav ul{
      margin: 0;
      border: 1px solid black; 
      border-radius: 5px; 
+   
+
 
 /* specificity: 0 0 3*/
   & li{
      display: inline-block;   
      
   }
+
+ }
 
 }
 
@@ -235,9 +286,6 @@ form {
 
 }
 */
-
-
-/*centers profile pic in about-me*/
 
 button {
   transition: all 0.3s ease;
